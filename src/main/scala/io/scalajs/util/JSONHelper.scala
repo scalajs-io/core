@@ -19,6 +19,9 @@ object JSONHelper {
     @inline
     def toJson: String = JSON.stringify(value)
 
+    @inline
+    def toPrettyJson: String = JSON.stringify(value, null, 4)
+
   }
 
   /**
