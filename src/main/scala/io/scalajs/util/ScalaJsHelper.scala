@@ -46,6 +46,16 @@ object ScalaJsHelper {
     def dynamic: js.Dynamic = obj.asInstanceOf[js.Dynamic]
 
     @inline
+    def getJSClassName: Option[String] = {
+      val keyword ="function "
+      val info = obj.dynamic.constructor.toString()
+      (info.indexOf(keyword), info.indexOf('(')) match {
+        case (a, b) if a == -1 | b == -1 | a > b => None
+        case (a, b) => Some(info.substring(a + keyword.length, b))
+      }
+    }
+
+    @inline
     def New[T <: js.Any](args: js.Any*): T =
       js.Dynamic.newInstance(obj.asInstanceOf[js.Dynamic])(args: _*).asInstanceOf[T]
 
