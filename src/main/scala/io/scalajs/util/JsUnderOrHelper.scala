@@ -33,7 +33,7 @@ object JsUnderOrHelper {
 
     @inline def nonAssigned: Boolean = valueA.flat.isEmpty
 
-    @inline def orDie(message: String): T = valueA getOrElse (throw new IllegalStateException(message))
+    @inline def orDie(message: String): T = valueA getOrElse (throw js.JavaScriptException(message))
 
   }
 
