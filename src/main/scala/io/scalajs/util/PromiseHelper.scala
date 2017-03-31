@@ -89,6 +89,42 @@ object PromiseHelper {
     * @return a Scala.js promise
     */
   @inline
+  def promiseCallback6[A, B, C, D, E, F](f: js.Function6[A, B, C, D, E, F, Any] => Unit): Promise[(A, B, C, D, E, F)] = {
+    val task = Promise[(A, B, C, D, E, F)]()
+    f((a: A, b: B, c: C, d: D, e: E, f: F) => task.success((a, b, c, d, e, f)))
+    task
+  }
+
+  /**
+    * Converts a JavaScript-style callback to a Scala.js promise
+    * @param f the given callback function
+    * @return a Scala.js promise
+    */
+  @inline
+  def promiseCallback7[A, B, C, D, E, F, G](f: js.Function7[A, B, C, D, E, F, G, Any] => Unit): Promise[(A, B, C, D, E, F, G)] = {
+    val task = Promise[(A, B, C, D, E, F, G)]()
+    f((a: A, b: B, c: C, d: D, e: E, f: F, g: G) => task.success((a, b, c, d, e, f, g)))
+    task
+  }
+
+  /**
+    * Converts a JavaScript-style callback to a Scala.js promise
+    * @param f the given callback function
+    * @return a Scala.js promise
+    */
+  @inline
+  def promiseCallback8[A, B, C, D, E, F, G, H](f: js.Function8[A, B, C, D, E, F, G, H, Any] => Unit): Promise[(A, B, C, D, E, F, G, H)] = {
+    val task = Promise[(A, B, C, D, E, F, G, H)]()
+    f((a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H) => task.success((a, b, c, d, e, f, g, h)))
+    task
+  }
+
+  /**
+    * Converts a JavaScript-style callback to a Scala.js promise
+    * @param f the given callback function
+    * @return a Scala.js promise
+    */
+  @inline
   def promiseWithError0[Z](f: js.Function1[Z, Any] => Unit): Promise[Unit] = {
     val task = Promise[Unit]()
     f((err: Z) =>
@@ -146,6 +182,36 @@ object PromiseHelper {
     f(
       (err: Z, a: A, b: B, c: C, d: D) =>
         if (err == null || js.isUndefined(err)) task.success((a, b, c, d))
+        else task.failure(wrapJavaScriptException(err)))
+    task
+  }
+
+  /**
+    * Converts a JavaScript-style callback to a Scala.js promise
+    * @param f the given callback function
+    * @return a Scala.js promise
+    */
+  @inline
+  def promiseWithError5[Z, A, B, C, D, E](f: js.Function6[Z, A, B, C, D, E, Any] => Unit): Promise[(A, B, C, D, E)] = {
+    val task = Promise[(A, B, C, D, E)]()
+    f(
+      (err: Z, a: A, b: B, c: C, d: D, e: E) =>
+        if (err == null || js.isUndefined(err)) task.success((a, b, c, d, e))
+        else task.failure(wrapJavaScriptException(err)))
+    task
+  }
+
+  /**
+    * Converts a JavaScript-style callback to a Scala.js promise
+    * @param f the given callback function
+    * @return a Scala.js promise
+    */
+  @inline
+  def promiseWithError6[Z, A, B, C, D, E, F](f: js.Function7[Z, A, B, C, D, E, F, Any] => Unit): Promise[(A, B, C, D, E, F)] = {
+    val task = Promise[(A, B, C, D, E, F)]()
+    f(
+      (err: Z, a: A, b: B, c: C, d: D, e: E, f: F) =>
+        if (err == null || js.isUndefined(err)) task.success((a, b, c, d, e, f))
         else task.failure(wrapJavaScriptException(err)))
     task
   }
