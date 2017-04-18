@@ -34,7 +34,7 @@ $ sbt test
 To add the `Core` binding to your project, add the following to your build.sbt:  
 
 ```sbt
-libraryDependencies += "io.scalajs" %%% "core" % "0.4.0-pre3"
+libraryDependencies += "io.scalajs" %%% "core" % "0.4.0-pre4"
 ```
 
 Optionally, you may add the Sonatype Repository resolver:
