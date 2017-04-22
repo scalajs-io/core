@@ -9,7 +9,7 @@ import scala.scalajs.js.|
   */
 package object scalajs {
 
-  type JsAnything = js.Any | js.Object | JsNumber | String | Boolean
+  type JsAnything = js.Any // js.Any | js.Object | JsNumber | String | Boolean
 
   type JsNumber = Byte | Double | Float | Int | Long | Short | java.lang.Number
 

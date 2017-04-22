@@ -1,7 +1,7 @@
 package io.scalajs
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
+import scala.scalajs.js.annotation.JSGlobal
 import scala.scalajs.js.|
 
 /**
@@ -49,5 +49,5 @@ trait JSON extends js.Object {
   * @author lawrence.daniels@gmail.com
   */
 @js.native
-@JSName("JSON")
+@JSGlobal("JSON")
 object JSON extends JSON
