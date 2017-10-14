@@ -3,7 +3,7 @@ package io.scalajs
 import org.scalatest.FunSpec
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.ScalaJSDefined
+
 
 /**
   * JSON Test
@@ -63,7 +63,7 @@ class JSONTest extends FunSpec {
 
   }
 
-  @ScalaJSDefined
+
   class KeyValuePair(val name: String, val value: Int) extends js.Object
 
 }
