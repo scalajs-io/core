@@ -1,6 +1,6 @@
 // Scala.js
 
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.20")
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.28")
 
 // Publishing
 
@@ -10,7 +10,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-pgp" % "0.8.3")
 
 // Resolvers
 
-addSbtPlugin("com.geirsson" % "sbt-scalafmt" % "0.5.5")
+//addSbtPlugin("com.geirsson" % "sbt-scalafmt" % "0.5.5")
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
